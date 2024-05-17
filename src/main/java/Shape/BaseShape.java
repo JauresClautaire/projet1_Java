@@ -83,6 +83,7 @@ public class BaseShape extends Transform implements Cloneable {
             this.coords.remove(p);
         }
         return this;
+
     }
 
     /** TODO
