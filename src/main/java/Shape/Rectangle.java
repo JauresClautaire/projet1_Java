@@ -14,7 +14,13 @@ public class Rectangle extends BaseShape {
      * @param height Height of the rectangle
      */
     public Rectangle(Double width, Double height) {
-        super(generateRectanglePoints(width, height, 0));
+        super();
+        double spaceBetweenPoints = 0.5;
+        double halfWidth = width/2;
+        double halfheight = height/2;
+        for(double startX = -halfWidth; startX <= halfWidth; startX += spaceBetweenPoints){
+            for(double startY = -halfheight; startY <= halfheight; startY += spaceBetweenPoints)
+                add(new Point2d(startX,startY));}
     }
 
     /**
@@ -43,20 +49,8 @@ public class Rectangle extends BaseShape {
      */
     @Override
     public Rectangle clone() {
-        return (Rectangle) super.clone();
+        return new Rectangle(getCoords());
+
     }
 
-    public static Collection<Point2d> generateRectanglePoints(double width, double height, int numberOfPoints) {
-        Collection<Point2d> coords = new ArrayList<>();
-        if (numberOfPoints < 25) {
-            numberOfPoints = 25;
-            for (int i = 0; i < numberOfPoints; i++) {
-                coords.add(new Point2d(-width / 2.0, -height / 2.0));
-                coords.add(new Point2d(width / 2.0, -height / 2.0));
-                coords.add(new Point2d(width / 2.0, height / 2.0));
-                coords.add(new Point2d(-width / 2.0, height / 2.0));
-            }
-        }
-        return coords;
-    }
 }

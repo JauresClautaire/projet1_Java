@@ -15,7 +15,17 @@ public class Ellipse extends BaseShape {
      */
 
     public Ellipse(Double widthDiameter, Double heightDiameter) {
-        super(generateEllipsePoints(widthDiameter, heightDiameter, 0));
+        super();
+        double spaceBetweenPoints = 0.5;
+        double halfWidth = widthDiameter/2;
+        double halfheight = heightDiameter/2;
+        for(double startX = -halfWidth; startX<=halfWidth; startX+=spaceBetweenPoints) {
+            for (double startY = -halfheight; startY <= halfheight; startY += spaceBetweenPoints) {
+                if (Math.pow(startX / halfWidth, 2) + Math.pow(startY / halfheight, 2) <= 1)
+                    add(new Point2d(startX, startY));
+
+            }
+        }
     }
 
     /**
@@ -44,20 +54,6 @@ public class Ellipse extends BaseShape {
      */
     @Override
     public Ellipse clone() {
-        return (Ellipse) super.clone();
-    }
-
-    public static Collection<Point2d> generateEllipsePoints(double widthDiameter, double heightDiameter, int numberOfPoints) {
-        Collection<Point2d> coords = new ArrayList<>();
-        if (numberOfPoints < 4) {
-            numberOfPoints = 4;
-            for (int i = 0; i < numberOfPoints; i++) {
-                coords.add(new Point2d(-widthDiameter / 2.0, 0.0));
-                coords.add(new Point2d(widthDiameter / 2.0, 0.0));
-                coords.add(new Point2d(0.0, -heightDiameter / 2.0));
-                coords.add(new Point2d(0.0, heightDiameter / 2.0));
-            }
-        }
-        return coords;
+        return new Ellipse(getCoords());
     }
 }
