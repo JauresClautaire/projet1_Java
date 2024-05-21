@@ -2,7 +2,7 @@ package Shape;
 
 import Point.Point2d;
 
-import java.util.ArrayList;
+
 import java.util.Collection;
 
 public class Ellipse extends BaseShape {
