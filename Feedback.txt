@@ -1,0 +1,11 @@
+|---------------------------|----------|
+| Points   	            |    5/5   |
+| Formes                    |    5/5   |
+| Lettres                   |    5/5   |
+| Qualité de code et Design |    3/5   |
+|---------------------------|----------|
+| Total                     |   18/20  |
+|---------------------------|----------|
+
+Commentaires:
+-2pt: Qualité de code, non-utilisation des méthodes pointOperator dans Point2d
